@@ -1,6 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@source "../**/*.{js,ts,jsx,tsx,mdx}";
+
+@theme {
+  --color-background: #0A0E1A;
+  --color-surface: #111827;
+  --color-border: #1E293B;
+  --color-accent: #00D4AA;
+  --color-cta: #FFB800;
+  --color-text-primary: #E8ECF0;
+  --color-text-secondary: #8B95A5;
+  --color-text-muted: #5A6270;
+}
 
 @layer base {
   :root {
