@@ -21,75 +21,52 @@ export function Footer() {
           {/* Product */}
           <div className="flex flex-col gap-3">
             <span className="font-display text-xs uppercase tracking-wider text-text-primary mb-2">
-              Product
+              SYSTEM
             </span>
             <Link
               href="/subjects"
               className="font-body text-sm text-text-secondary hover:text-accent transition-colors"
             >
-              All Subjects
+              Subject Directory
             </Link>
             <Link
-              href="/#how-it-works"
+              href="/how-it-works"
               className="font-body text-sm text-text-secondary hover:text-accent transition-colors"
             >
-              How It Works
-            </Link>
-            <Link
-              href="/#pricing"
-              className="font-body text-sm text-text-secondary hover:text-accent transition-colors"
-            >
-              Pricing
+              Technical Docs
             </Link>
             <Link
               href="/faq"
               className="font-body text-sm text-text-secondary hover:text-accent transition-colors"
             >
-              FAQ
+              Support
             </Link>
           </div>
 
           {/* Legal */}
           <div className="flex flex-col gap-3">
             <span className="font-display text-xs uppercase tracking-wider text-text-primary mb-2">
-              Legal
+              LEGAL
             </span>
             <Link
               href="/privacy-policy"
               className="font-body text-sm text-text-secondary hover:text-accent transition-colors"
             >
-              Privacy Policy
+              Privacy Protocol
             </Link>
             <Link
               href="/terms-of-service"
               className="font-body text-sm text-text-secondary hover:text-accent transition-colors"
             >
-              Terms of Service
-            </Link>
-            <Link
-              href="/cookie-policy"
-              className="font-body text-sm text-text-secondary hover:text-accent transition-colors"
-            >
-              Cookie Policy
-            </Link>
-            <Link
-              href="/refund-policy"
-              className="font-body text-sm text-text-secondary hover:text-accent transition-colors"
-            >
-              Refund Policy
+              Terms of Use
             </Link>
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="border-t border-border pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-mono text-[11px] text-text-muted">
-            © 2026 AP Score Calculator. All rights reserved.
-          </p>
-          <p className="font-mono text-[11px] text-text-muted text-center md:text-right">
-            AP® and Advanced Placement® are registered trademarks of College
-            Board. This site is not affiliated with, endorsed by, or sponsored by
-            College Board.
+          <p className="font-mono text-[11px] text-text-muted uppercase">
+            © 2024 AP SCORE CALCULATOR. ADVANCED PLACEMENT AND COLLEGE BOARD ARE TRADEMARKS OF THE COLLEGE BOARD, WHICH IS NOT AFFILIATED WITH THIS TOOL.
           </p>
         </div>
 

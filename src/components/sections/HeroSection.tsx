@@ -95,15 +95,13 @@ export function HeroSection() {
 
               {/* Header */}
               <div className="flex justify-between items-center border-b border-border pb-4 mb-4">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-text-muted">
-                  Active Session
-                </span>
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                  <span className="font-mono text-[10px] text-accent">
-                    Live
-                  </span>
-                </div>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-text-muted">
+                ACTIVE SESSION
+              </span>
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                <span className="font-mono text-[10px] text-accent">Live</span>
+              </div>
               </div>
 
               {/* Subject selector */}
@@ -133,29 +131,29 @@ export function HeroSection() {
               <div className="space-y-4">
                 <div>
                   <div className="flex justify-between mb-2">
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-text-secondary">
-                      MCQ Score
-                    </span>
-                    <span className="font-mono text-sm text-accent">
-                      35 / 45
-                    </span>
-                  </div>
-                  <div className="w-full h-2 bg-background border border-border rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-accent transition-all duration-500"
-                      style={{ width: "77%" }}
-                    />
-                  </div>
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-text-secondary">
+                    MCQ SCORE
+                  </span>
+                  <span className="font-mono text-sm text-accent">
+                    35 / 45
+                  </span>
                 </div>
+                <div className="w-full h-2 bg-background border border-border rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-accent transition-all duration-500"
+                    style={{ width: "77%" }}
+                  />
+                </div>
+              </div>
 
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-text-secondary">
-                      FRQ Score
-                    </span>
-                    <span className="font-mono text-sm text-accent">
-                      42 / 54
-                    </span>
+              <div>
+                <div className="flex justify-between mb-2">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-text-secondary">
+                    FRQ SCORE
+                  </span>
+                  <span className="font-mono text-sm text-accent">
+                    42 / 54
+                  </span>
                   </div>
                   <div className="w-full h-2 bg-background border border-border rounded-full overflow-hidden">
                     <div
@@ -169,9 +167,9 @@ export function HeroSection() {
               {/* Result */}
               <div className="mt-6 border border-accent/30 bg-accent/5 p-4 rounded-lg text-center group-hover:border-accent/60 transition-colors">
                 <span className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-2">
-                  Predicted AP Score
+                  PREDICTED COMPOSITE SCORE
                 </span>
-                <span className="font-mono text-6xl font-bold text-accent block">
+                <span className="font-mono text-6xl font-bold text-accent block glow-5">
                   4
                 </span>
               </div>

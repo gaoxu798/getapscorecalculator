@@ -41,4 +41,7 @@
   .text-balance {
     text-wrap: balance;
   }
+  .glow-5 {
+    box-shadow: 0 0 20px rgba(0, 212, 170, 0.4);
+  }
 }

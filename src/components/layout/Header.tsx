@@ -32,7 +32,7 @@ export function Header() {
             href="/how-it-works"
             className="font-display text-xs uppercase tracking-wider text-text-secondary hover:text-accent transition-colors"
           >
-            How It Works
+            Features
           </Link>
           <Link
             href="/#pricing"
@@ -48,12 +48,20 @@ export function Header() {
           </Link>
         </nav>
 
-        <Link
-          href="/subjects"
-          className="bg-cta text-background font-display text-xs uppercase tracking-wider px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity"
-        >
-          Calculate My Score
-        </Link>
+        <div className="flex items-center gap-4">
+          <Link
+            href="/subjects"
+            className="hidden md:block font-display text-xs uppercase tracking-wider text-accent hover:text-cta transition-colors"
+          >
+            SIGN IN
+          </Link>
+          <Link
+            href="/subjects"
+            className="bg-cta text-background font-display text-xs uppercase tracking-wider px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity"
+          >
+            CALCULATE NOW
+          </Link>
+        </div>
       </div>
     </header>
   );
