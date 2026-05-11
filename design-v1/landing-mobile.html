@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>AP Score Calculator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#28dfb5",
+                      "secondary": "#ffdb9d",
+                      "surface-container-lowest": "#08100d",
+                      "surface-bright": "#333b37",
+                      "on-tertiary-container": "#733e00",
+                      "on-secondary-fixed": "#271900",
+                      "on-primary-fixed-variant": "#00513f",
+                      "tertiary-fixed": "#ffdcc1",
+                      "secondary-container": "#feb700",
+                      "on-primary": "#00382b",
+                      "surface-container-highest": "#2f3633",
+                      "tertiary-fixed-dim": "#ffb77a",
+                      "inverse-surface": "#dce4df",
+                      "outline": "#85948d",
+                      "surface-container": "#19211e",
+                      "on-tertiary-fixed": "#2e1500",
+                      "primary-container": "#00d4aa",
+                      "outline-variant": "#3b4a44",
+                      "surface": "#0d1512",
+                      "on-tertiary": "#4c2700",
+                      "error-container": "#93000a",
+                      "secondary-fixed-dim": "#ffba20",
+                      "on-surface": "#dce4df",
+                      "primary-fixed-dim": "#28dfb5",
+                      "on-secondary-container": "#6b4b00",
+                      "secondary-fixed": "#ffdea8",
+                      "on-background": "#dce4df",
+                      "tertiary-container": "#ffa858",
+                      "on-primary-fixed": "#002118",
+                      "surface-variant": "#2f3633",
+                      "inverse-primary": "#006b55",
+                      "surface-container-high": "#242c28",
+                      "surface-dim": "#0d1512",
+                      "error": "#ffb4ab",
+                      "primary-fixed": "#55fcd0",
+"on-secondary": "#412d00",
+                      "on-secondary-fixed-variant": "#5e4200",
+                      "on-primary-container": "#005643",
+                      "on-error": "#690005",
+                      "on-error-container": "#ffdad6",
+                      "surface-container-low": "#161d1a",
+                      "inverse-on-surface": "#2a322f",
+                      "background": "#0d1512",
+                      "tertiary": "#ffcea6",
+                      "on-tertiary-fixed-variant": "#6c3a00",
+                      "primary": "#46f1c5",
+                      "on-surface-variant": "#bacac2"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "container-max": "1200px",
+                      "md": "24px",
+                      "base": "4px",
+                      "xs": "8px",
+                      "xl": "80px",
+                      "lg": "48px",
+                      "gutter": "20px",
+                      "sm": "16px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Space Grotesk"
+                      ],
+                      "label-caps": [
+                              "Space Grotesk"
+                      ],
+                      "data-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "display-lg": [
+                              "Space Grotesk"
+                      ],
+                      "data-lg": [
+                              "JetBrains Mono"
+                      ],
+                      "body-base": [
+                              "DM Sans"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "data-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "data-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "-0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-base": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+      </script>
+<style>
+        body {
+            background-color: #0A0E1A;
+            background-image: radial-gradient(#1E293B 1px, transparent 1px);
+            background-size: 32px 32px;
+            max-width: 375px;
+            margin: 0 auto;
+position: relative;
+        }
+        .bg-layer-1 { background-color: #111827; }
+        .bg-layer-2 { background-color: #1E293B; }
+        .border-technical { border-color: #1E293B; }
+        .text-accent { color: #00D4AA; }
+        .bg-cta { background-color: #FFB800; }
+        .text-cta { color: #0A0E1A; }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface font-body-base overflow-x-hidden antialiased">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface fixed top-0 w-[375px] z-50 border-b border-outline-variant dark:border-outline-variant flex justify-between items-center px-sm h-16 mx-auto">
+<button aria-label="Menu" class="text-primary dark:text-primary active:scale-95 duration-100 p-2 -ml-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="font-data-lg text-primary dark:text-primary tracking-tighter text-[20px]">AP_SCORER_v1.0</div>
+<button class="bg-cta text-cta font-label-caps text-label-caps px-4 py-2 rounded-full active:scale-95 duration-100 hover:bg-secondary-fixed transition-colors">
+            CALCULATE
+        </button>
+</header>
+<main class="pt-[80px] pb-xl px-sm flex flex-col gap-lg">
+<!-- HERO -->
+<section class="flex flex-col gap-md">
+<h1 class="font-display-lg text-[32px] leading-[1.1] tracking-tight">Know Your AP Score Before the Exam</h1>
+<p class="font-body-base text-body-base text-on-surface-variant">Free score calculator for all 38 AP subjects. Enter your practice results. Get an instant 1-5 prediction.</p>
+<div class="font-data-sm text-[11px] text-accent flex items-center gap-2 uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+                No signup required · Runs in browser
+            </div>
+<button class="w-full bg-cta text-cta h-[52px] rounded-full font-label-caps text-[14px] flex items-center justify-center gap-2 active:scale-95 duration-100 mt-2">
+                Calculate My AP Score — Free
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<!-- Tool Preview Card -->
+<div class="bg-layer-1 border border-technical rounded-lg p-md mt-sm flex flex-col gap-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2">
+<span class="material-symbols-outlined text-outline-variant text-[16px]">data_usage</span>
+</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">PREVIEW MODULE</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-end">
+<label class="font-label-caps text-label-caps text-on-surface">MCQ SCORE</label>
+<span class="font-data-sm text-data-sm text-primary">42/55</span>
+</div>
+<div class="h-2 bg-layer-2 rounded-full w-full overflow-hidden">
+<div class="h-full bg-primary w-[76%]"></div>
+</div>
+</div>
+<div class="mt-xs pt-xs border-t border-technical flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">PREDICTED SCORE</span>
+<span class="font-data-lg text-[36px] text-accent drop-shadow-[0_0_8px_rgba(0,212,170,0.3)]">4</span>
+</div>
+</div>
+</section>
+<!-- SUBJECTS -->
+<section class="flex flex-col gap-sm border-t border-technical pt-lg">
+<h2 class="font-headline-md text-headline-md">Supported Subjects</h2>
+<div class="grid grid-cols-2 gap-2">
+<div class="bg-layer-1 border border-technical p-sm rounded flex flex-col gap-2 active:border-primary transition-colors">
+<span class="material-symbols-outlined text-outline">calculate</span>
+<span class="font-data-sm text-[12px] uppercase">Calculus BC</span>
+</div>
+<div class="bg-layer-1 border border-technical p-sm rounded flex flex-col gap-2 active:border-primary transition-colors">
+<span class="material-symbols-outlined text-outline">science</span>
+<span class="font-data-sm text-[12px] uppercase">Chemistry</span>
+</div>
+<div class="bg-layer-1 border border-technical p-sm rounded flex flex-col gap-2 active:border-primary transition-colors">
+<span class="material-symbols-outlined text-outline">public</span>
+<span class="font-data-sm text-[12px] uppercase">World History</span>
+</div>
+<div class="bg-layer-1 border border-technical p-sm rounded flex flex-col gap-2 active:border-primary transition-colors">
+<span class="material-symbols-outlined text-outline">functions</span>
+<span class="font-data-sm text-[12px] uppercase">Statistics</span>
+</div>
+</div>
+<a class="font-data-sm text-data-sm text-primary underline mt-2" href="#">View All 38 Subjects →</a>
+</section>
+<!-- HOW IT WORKS -->
+<section class="flex flex-col gap-md border-t border-technical pt-lg relative">
+<h2 class="font-headline-md text-headline-md">Operation Protocol</h2>
+<div class="flex flex-col gap-lg relative ml-2">
+<div class="absolute left-[11px] top-6 bottom-6 w-px bg-technical"></div>
+<div class="flex gap-md relative z-10">
+<div class="font-data-sm text-data-sm text-accent bg-surface border border-technical w-6 h-6 flex items-center justify-center shrink-0">01</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-label-caps text-label-caps">SELECT SUBJECT</h3>
+<p class="font-body-base text-[14px] text-on-surface-variant">Choose from any of the 38 currently supported AP exams.</p>
+</div>
+</div>
+<div class="flex gap-md relative z-10">
+<div class="font-data-sm text-data-sm text-accent bg-surface border border-technical w-6 h-6 flex items-center justify-center shrink-0">02</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-label-caps text-label-caps">INPUT DATA</h3>
+<p class="font-body-base text-[14px] text-on-surface-variant">Enter your raw scores for Multiple Choice and Free Response sections.</p>
+</div>
+</div>
+<div class="flex gap-md relative z-10">
+<div class="font-data-sm text-data-sm text-accent bg-surface border border-technical w-6 h-6 flex items-center justify-center shrink-0">03</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-label-caps text-label-caps">ANALYZE OUTPUT</h3>
+<p class="font-body-base text-[14px] text-on-surface-variant">Receive an instant, historically-weighted 1-5 score prediction.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest flex flex-col gap-lg px-md py-xl w-[375px] mx-auto relative border-t border-outline-variant">
+<div class="flex flex-col gap-4">
+<a class="text-on-surface-variant font-body-base text-body-base hover:text-primary transition-opacity duration-200" href="#">Subject Directory</a>
+<a class="text-on-surface-variant font-body-base text-body-base hover:text-primary transition-opacity duration-200" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-body-base text-body-base hover:text-primary transition-opacity duration-200" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-body-base text-body-base hover:text-primary transition-opacity duration-200" href="#">API Status</a>
+</div>
+<div class="flex flex-col gap-2 border-t border-technical pt-sm">
+<div class="font-data-sm text-on-surface-variant text-[10px] uppercase">© 2024 AP_PRECISION_TOOLS. ALL RIGHTS RESERVED.</div>
+<div class="font-data-sm text-on-surface-variant text-[10px] leading-tight opacity-50">AP® is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this product.</div>
+</div>
+</footer>
+</body></html>

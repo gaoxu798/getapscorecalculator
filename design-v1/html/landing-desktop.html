@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AP Score Calculator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-high": "#242c28",
+                        "primary-fixed-dim": "#28dfb5",
+                        "on-primary-fixed": "#002118",
+                        "secondary-fixed": "#ffdea8",
+                        "on-error": "#690005",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface-variant": "#2f3633",
+                        "on-primary-container": "#005643",
+                        "secondary": "#ffdb9d",
+                        "outline": "#85948d",
+                        "secondary-container": "#feb700",
+                        "on-secondary": "#412d00",
+                        "tertiary-fixed-dim": "#ffb77a",
+                        "inverse-surface": "#dce4df",
+                        "tertiary": "#ffcea6",
+                        "on-primary": "#00382b",
+                        "on-secondary-container": "#6b4b00",
+                        "tertiary-container": "#ffa858",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#55fcd0",
+                        "on-surface-variant": "#bacac2",
+                        "surface": "#0d1512",
+                        "inverse-on-surface": "#2a322f",
+                        "primary-container": "#00d4aa",
+                        "on-error-container": "#ffdad6",
+                        "surface-dim": "#0d1512",
+                        "on-secondary-fixed": "#271900",
+                        "on-secondary-fixed-variant": "#5e4200",
+                        "error": "#ffb4ab",
+                        "inverse-primary": "#006b55",
+                        "secondary-fixed-dim": "#ffba20",
+                        "surface-container-lowest": "#08100d",
+                        "on-surface": "#dce4df",
+                        "primary": "#46f1c5",
+                        "surface-container-highest": "#2f3633",
+                        "surface-bright": "#333b37",
+                        "on-tertiary-fixed-variant": "#6c3a00",
+                        "outline-variant": "#3b4a44",
+                        "on-tertiary": "#4c2700",
+                        "surface-container": "#19211e",
+                        "surface-tint": "#28dfb5",
+                        "background": "#0d1512",
+                        "on-tertiary-container": "#733e00",
+                        "on-primary-fixed-variant": "#00513f",
+                        "on-tertiary-fixed": "#2e1500",
+                        "on-background": "#dce4df",
+                        "surface-container-low": "#161d1a"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "sm": "16px",
+                        "container-max": "1200px",
+                        "lg": "48px",
+                        "md": "24px",
+                        "xs": "8px",
+                        "base": "4px",
+                        "xl": "80px",
+                        "gutter": "20px"
+                    },
+                    fontFamily: {
+                        "headline-md": ["Space Grotesk"],
+                        "label-caps": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "data-sm": ["JetBrains Mono"],
+                        "data-lg": ["JetBrains Mono"],
+                        "body-base": ["DM Sans"]
+                    },
+                    fontSize: {
+                        "headline-md": ["24px", { lineHeight: "1.2", fontWeight: "600" }],
+                        "label-caps": ["12px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "700" }],
+                        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "data-sm": ["14px", { lineHeight: "1.4", fontWeight: "500" }],
+                        "data-lg": ["32px", { lineHeight: "1", letterSpacing: "-0.05em", fontWeight: "700" }],
+                        "body-base": ["16px", { lineHeight: "1.6", fontWeight: "400" }]
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 31.5L32 31.5M31.5 0L31.5 32' stroke='%231E293B' stroke-width='1' fill='none'/%3E%3C/svg%3E\")",
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #0A0E1A; color: #dce4df; }
+        .bg-grid { background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 31.5L32 31.5M31.5 0L31.5 32' stroke='%231E293B' stroke-width='1' fill='none'/%3E%3C/svg%3E"); }
+        .glow-5 { box-shadow: 0 0 20px rgba(0, 212, 170, 0.4); }
+    </style>
+</head>
+<body class="font-body-base antialiased bg-grid selection:bg-primary-container selection:text-surface">
+<!-- TopNavBar -->
+<nav class="bg-surface-container dark:bg-surface-container fixed top-0 w-full h-[64px] z-50 border-b border-outline-variant dark:border-outline-variant flex items-center justify-between px-md max-w-container-max mx-auto left-0 right-0">
+<div class="flex items-center gap-xs">
+<div class="w-4 h-4 bg-primary-container" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);"></div>
+<a class="text-headline-md font-headline-md font-bold tracking-tighter text-on-surface dark:text-on-surface" href="#">
+<span class="font-headline-md font-bold">AP Score</span>
+<span class="font-body-base font-normal text-[20px]">Calculator</span>
+</a>
+</div>
+<div class="hidden md:flex items-center gap-md">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-caps text-label-caps hover:text-primary-container dark:hover:text-primary-container transition-colors duration-200" href="#">Subjects</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-caps text-label-caps hover:text-primary-container dark:hover:text-primary-container transition-colors duration-200" href="#">Features</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-caps text-label-caps hover:text-primary-container dark:hover:text-primary-container transition-colors duration-200" href="#">Pricing</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-caps text-label-caps hover:text-primary-container dark:hover:text-primary-container transition-colors duration-200" href="#">FAQ</a>
+</div>
+<div class="flex items-center gap-sm">
+<button class="hidden md:block font-label-caps text-label-caps text-primary hover:text-primary-container transition-colors duration-200">SIGN IN</button>
+<button class="bg-secondary-container text-on-secondary px-sm py-2 rounded-full font-label-caps text-label-caps hover:opacity-90 transition-opacity">CALCULATE NOW</button>
+</div>
+</nav>
+<main class="pt-[100px] pb-xl px-md max-w-container-max mx-auto">
+<!-- Hero Section -->
+<section class="flex flex-col md:flex-row gap-lg items-center mb-xl">
+<div class="w-full md:w-[55%] flex flex-col gap-md">
+<p class="font-data-sm text-data-sm text-primary-container uppercase tracking-widest">INSTRUMENT-GRADE ACCURACY</p>
+<h1 class="font-display-lg text-display-lg text-on-surface leading-tight">Know Your AP Score Before the Exam</h1>
+<p class="font-body-base text-body-base text-on-surface-variant max-w-lg">
+                    Stop guessing. Use our precision algorithm based on historically released curves to calculate exactly what you need on the MCQ and FRQ to hit your target score.
+                </p>
+<div class="mt-sm">
+<button class="bg-secondary-container text-on-secondary px-lg py-sm rounded-full font-label-caps text-label-caps text-lg hover:opacity-90 transition-opacity shadow-[0_0_15px_rgba(254,183,0,0.3)]">START CALCULATING</button>
+</div>
+</div>
+<div class="w-full md:w-[45%]">
+<div class="bg-[#111827] border border-outline-variant p-md rounded-DEFAULT shadow-lg flex flex-col gap-md relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+<div class="flex justify-between items-center border-b border-outline-variant pb-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant">ACTIVE SESSION</span>
+<div class="flex gap-xs">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+</div>
+</div>
+<div>
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-xs">SUBJECT</label>
+<select class="w-full bg-surface border border-outline-variant text-on-surface font-body-base p-xs focus:border-primary-container focus:ring-0 outline-none rounded-DEFAULT appearance-none">
+<option>AP Calculus AB</option>
+<option>AP Physics 1</option>
+<option>AP Biology</option>
+</select>
+</div>
+<div class="flex flex-col gap-sm">
+<div>
+<div class="flex justify-between mb-xs">
+<span class="font-label-caps text-label-caps text-on-surface">MCQ SCORE</span>
+<span class="font-data-sm text-data-sm text-primary-container">35 / 45</span>
+</div>
+<div class="w-full h-2 bg-surface-container border border-outline-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[77%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-xs">
+<span class="font-label-caps text-label-caps text-on-surface">FRQ SCORE</span>
+<span class="font-data-sm text-data-sm text-primary-container">42 / 54</span>
+</div>
+<div class="w-full h-2 bg-surface-container border border-outline-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[77%]"></div>
+</div>
+</div>
+</div>
+<div class="mt-sm border border-primary-container/30 bg-primary-container/5 p-sm text-center rounded-DEFAULT group-hover:border-primary-container transition-colors duration-300">
+<span class="font-label-caps text-label-caps text-on-surface-variant block mb-xs">PREDICTED COMPOSITE SCORE</span>
+<span class="font-data-lg text-data-lg text-primary-container text-5xl glow-5 block">4</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full py-xl border-t border-outline-variant dark:border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md px-md max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-2">
+<a class="font-headline-md text-headline-md font-bold text-on-surface mb-sm block" href="#">AP Score Calculator</a>
+<p class="font-data-sm text-data-sm text-on-surface-variant text-[11px] max-w-md uppercase leading-relaxed">
+                    © 2024 AP SCORE CALCULATOR. ADVANCED PLACEMENT AND COLLEGE BOARD ARE TRADEMARKS OF THE COLLEGE BOARD, WHICH IS NOT AFFILIATED WITH THIS TOOL.
+                </p>
+</div>
+<div class="flex flex-col gap-xs">
+<span class="font-label-caps text-label-caps text-on-surface mb-xs">SYSTEM</span>
+<a class="font-body-base text-body-base text-on-surface-variant dark:text-on-surface-variant hover:text-primary-container dark:hover:text-primary-container Transition-opacity duration-200" href="#">Subject Directory</a>
+<a class="font-body-base text-body-base text-on-surface-variant dark:text-on-surface-variant hover:text-primary-container dark:hover:text-primary-container Transition-opacity duration-200" href="#">Technical Docs</a>
+<a class="font-body-base text-body-base text-on-surface-variant dark:text-on-surface-variant hover:text-primary-container dark:hover:text-primary-container Transition-opacity duration-200" href="#">Support</a>
+</div>
+<div class="flex flex-col gap-xs">
+<span class="font-label-caps text-label-caps text-on-surface mb-xs">LEGAL</span>
+<a class="font-body-base text-body-base text-on-surface-variant dark:text-on-surface-variant hover:text-primary-container dark:hover:text-primary-container Transition-opacity duration-200" href="#">Privacy Protocol</a>
+<a class="font-body-base text-body-base text-on-surface-variant dark:text-on-surface-variant hover:text-primary-container dark:hover:text-primary-container Transition-opacity duration-200" href="#">Terms of Use</a>
+</div>
+</div>
+</footer>
+</body></html>
